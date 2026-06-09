@@ -1,0 +1,23 @@
+# virtual environments
+.venv/
+venv/
+env/
+uv.lock
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# environment variables / secrets
+.env
+
+# OS files
+.DS_Store
+
+# VS Code settings, optional
+.vscode/
