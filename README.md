@@ -1,4 +1,5 @@
-# Warmth Sensor Object Detection
+# Warmth-Sensor Object Detection
+[In-Progress]
 
 This project explores material/object classification using warmth sensor data. The workflow applies dimensionality reduction and machine learning methods such as **Principal Component Analysis (PCA)** and **Support Vector Machine (SVM)** to identify whether different materials produce distinguishable thermal-response signatures.
 
