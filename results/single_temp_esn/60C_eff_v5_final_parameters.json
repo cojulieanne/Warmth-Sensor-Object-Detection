@@ -1,0 +1,116 @@
+{
+  "source": "final all-material joint ESN-XGBoost Bayesian search after nested LOMO evaluation",
+  "file_title": "60C",
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "summary_features": [
+    "mean",
+    "std",
+    "range",
+    "net_change",
+    "slope",
+    "absolute_area",
+    "time_of_max_absolute",
+    "skewness",
+    "excess_kurtosis"
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "esn_parameters": {
+    "res_size": 26,
+    "leak_rate": 0.15405677912001153,
+    "input_magnitude": 1.4425319072533664,
+    "spectral_radius": 0.3551351254709197,
+    "washout": 3
+  },
+  "xgb_parameters": {
+    "n_estimators": 224,
+    "max_depth": 1,
+    "learning_rate": 0.10958525164566212,
+    "min_child_weight": 14.327066349997319,
+    "subsample": 0.6167747796739028,
+    "colsample_bytree": 0.641306844958786,
+    "reg_alpha": 0.22173203440899703,
+    "reg_lambda": 13.302077544520833
+  },
+  "bayesian_search": {
+    "type": "joint_esn_xgboost_gaussian_process_expected_improvement",
+    "n_trials": 50,
+    "n_initial": 15,
+    "inner_material_folds": 4,
+    "stability_weight": 0.25,
+    "search_space": {
+      "res_size": [
+        "integer",
+        10.0,
+        80.0
+      ],
+      "leak_rate": [
+        "float",
+        0.05,
+        0.95
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.3,
+        1.5
+      ],
+      "washout": [
+        "integer",
+        0.0,
+        5.0
+      ],
+      "n_estimators": [
+        "integer",
+        100.0,
+        600.0
+      ],
+      "max_depth": [
+        "integer",
+        1.0,
+        4.0
+      ],
+      "learning_rate": [
+        "log_float",
+        0.01,
+        0.15
+      ],
+      "min_child_weight": [
+        "log_float",
+        1.0,
+        20.0
+      ],
+      "subsample": [
+        "float",
+        0.6,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.3,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        0.0001,
+        10.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.1,
+        100.0
+      ]
+    }
+  }
+}

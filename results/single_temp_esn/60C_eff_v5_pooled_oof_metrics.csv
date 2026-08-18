@@ -1,0 +1,2 @@
+target,protocol,n_bayesian_trials,random_states,n,mae,rmse,nrmse_range,r2,median_ape_pct
+eff,nested_lomo_joint_bayesian_esn_xgboost,50,"(42, 43, 44)",84,3598.897650336216,6960.851605365571,0.1873306401985245,0.6142971861519035,39.97548373328728
