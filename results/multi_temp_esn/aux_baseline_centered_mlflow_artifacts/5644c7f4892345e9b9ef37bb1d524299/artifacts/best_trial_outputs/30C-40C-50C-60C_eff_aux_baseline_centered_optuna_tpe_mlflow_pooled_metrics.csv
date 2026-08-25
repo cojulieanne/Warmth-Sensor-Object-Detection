@@ -1,0 +1,2 @@
+target,protocol,n_optuna_trials,random_states,n,mae,rmse,nrmse_range,r2,median_ape_pct,prediction_range_coverage
+eff,unified_shared_hyperparameters_grouped_lomo_optuna_tpe,100,"(42, 43, 44)",336,4148.174384142954,7689.511258761333,0.20694034991453766,0.5293202319246988,53.942976803699125,0.7275579798600844

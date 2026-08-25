@@ -1,0 +1,103 @@
+{
+  "source": "4C fast combined manually computed thermal plus summarized ESN features",
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "feature_family": "combined_thermal_and_summarized_esn",
+  "thermal_predictors": [
+    "primary_final_change",
+    "primary_max_abs_change",
+    "primary_response_auc",
+    "primary_early_slope",
+    "primary_mid_slope",
+    "primary_late_slope",
+    "primary_max_abs_rate",
+    "primary_rate_auc",
+    "secondary_final_change",
+    "secondary_max_abs_change",
+    "secondary_response_auc",
+    "secondary_early_slope",
+    "secondary_mid_slope",
+    "secondary_late_slope",
+    "secondary_max_abs_rate",
+    "secondary_rate_auc",
+    "difference_final_change",
+    "difference_max_abs_change",
+    "difference_response_auc",
+    "difference_early_slope",
+    "difference_mid_slope",
+    "difference_late_slope",
+    "difference_max_abs_rate",
+    "difference_rate_auc",
+    "secondary_primary_auc_ratio",
+    "initial_sensor_difference",
+    "final_sensor_difference"
+  ],
+  "esn_summary_features": [
+    "mean",
+    "std",
+    "range",
+    "net_change",
+    "slope",
+    "absolute_area",
+    "time_of_max_absolute",
+    "skewness",
+    "excess_kurtosis"
+  ],
+  "washout_fixed": 0,
+  "reservoir_search_range": [
+    8,
+    30
+  ],
+  "search_protocol": {
+    "method": "Optuna multivariate TPE",
+    "grouping": "5-fold GroupKFold by material",
+    "n_trials": 30,
+    "reservoir_seeds": [
+      42
+    ],
+    "pruning_enabled": true
+  },
+  "final_evaluation": {
+    "protocol": "14-fold leave-one-material-out",
+    "reservoir_seeds": [
+      42,
+      43,
+      44
+    ],
+    "prediction_aggregation": "mean across seed-specific regressors"
+  },
+  "esn_parameters": {
+    "spectral_radius": 0.5754419872808973,
+    "res_size": 16,
+    "leak_rate": 0.8523324488862807,
+    "input_magnitude": 1.9208750937137258,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 381,
+    "max_depth": 2,
+    "learning_rate": 0.07667062838400276,
+    "min_child_weight": 1.3842723196885907,
+    "subsample": 0.7492493959045063,
+    "colsample_bytree": 0.6024006876101033,
+    "reg_alpha": 5.774480580658402e-06,
+    "reg_lambda": 0.18457668851984177
+  },
+  "final_pooled_metrics": {
+    "n": 336.0,
+    "mae": 4532.300551152222,
+    "rmse": 8191.977505005373,
+    "nrmse_range": 0.22046273609994207,
+    "r2": 0.465797939757448,
+    "median_ape_pct": 54.360179026714796
+  }
+}

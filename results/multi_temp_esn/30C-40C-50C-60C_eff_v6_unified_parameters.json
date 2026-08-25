@@ -1,0 +1,141 @@
+{
+  "source": "one shared configuration selected by pooled grouped-LOMO Bayesian search",
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "thermal_windows": {
+    "early": [
+      0.0,
+      1.0
+    ],
+    "mid": [
+      1.0,
+      3.0
+    ],
+    "late": [
+      3.0,
+      5.0
+    ]
+  },
+  "summary_features": [
+    "mean",
+    "std",
+    "range",
+    "net_change",
+    "slope",
+    "absolute_area",
+    "time_of_max_absolute",
+    "skewness",
+    "excess_kurtosis"
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "esn_parameters": {
+    "res_size": 25,
+    "leak_rate": 0.26086084827572703,
+    "input_magnitude": 1.0889887240721112,
+    "spectral_radius": 1.4454615868954506,
+    "washout": 3
+  },
+  "xgb_parameters": {
+    "n_estimators": 540,
+    "max_depth": 3,
+    "learning_rate": 0.11600800908361648,
+    "min_child_weight": 0.13611173769440274,
+    "subsample": 0.7511328931889731,
+    "colsample_bytree": 0.8483734386502187,
+    "reg_alpha": 1.7029154164902612e-06,
+    "reg_lambda": 18.370927449052108
+  },
+  "selection_metrics": {
+    "pooled_nrmse_range": 0.19724047440112832,
+    "pooled_r2": 0.5724102859423004,
+    "prediction_range_coverage": 0.8173901825128518,
+    "sd_fold_nrmse_training_range": 0.23417774905679833
+  },
+  "bayesian_search": {
+    "type": "single_configuration_pooled_grouped_lomo_gaussian_process_ei",
+    "n_trials": 50,
+    "n_initial": 15,
+    "material_folds": 14,
+    "stability_weight": 0.25,
+    "search_space": {
+      "res_size": [
+        "integer",
+        10.0,
+        80.0
+      ],
+      "leak_rate": [
+        "float",
+        0.05,
+        0.95
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.3,
+        1.5
+      ],
+      "washout": [
+        "integer",
+        0.0,
+        5.0
+      ],
+      "n_estimators": [
+        "integer",
+        200.0,
+        1200.0
+      ],
+      "max_depth": [
+        "integer",
+        2.0,
+        6.0
+      ],
+      "learning_rate": [
+        "log_float",
+        0.015,
+        0.2
+      ],
+      "min_child_weight": [
+        "log_float",
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        "float",
+        0.65,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.4,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        1e-06,
+        3.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.01,
+        30.0
+      ]
+    }
+  }
+}

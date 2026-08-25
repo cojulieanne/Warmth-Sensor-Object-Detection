@@ -1,0 +1,89 @@
+{"kind":"deck","id":"pr/kgg1vg","name":"Deck"}
+{"kind":"layout","layoutId":"fab561a1-e36a-4c28-b3e7-de06a78198e2","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"b61b7433-a7b0-4e62-8175-e2cd7589f8af","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/r65zt8","slide":1,"title":"Fine-tuning improves material generalization; temperature transfer remains weak","textShapes":57}
+{"kind":"shape","id":"sh/r2dsz25o","slide":1,"bbox":[0,0,1280,12]}
+{"kind":"textbox","id":"sh/c3m9s769","slide":1,"name":"slide-title","text":"Fine-tuning improves material generalization; temperature transfer remains weak","textPreview":"Fine-tuning improves material generalization; temperature transfer remains weak","textChars":79,"textLines":1,"bbox":[60,38,1160,44]}
+{"kind":"textbox","id":"sh/d4va1cnu","slide":1,"name":"subtitle","text":"Effusivity regression | XGBoost baseline vs fine-tuned ESN + XGBoost hyperparameters","textPreview":"Effusivity regression | XGBoost baseline vs fine-tuned ESN + XGBoost hyperparameters","textChars":84,"textLines":1,"bbox":[62,88,1030,28]}
+{"kind":"shape","id":"sh/2dkrmxo7","slide":1,"name":"table-header","bbox":[60,151,710,66]}
+{"kind":"textbox","id":"sh/3ytsv25c","slide":1,"text":"Protocol","textPreview":"Protocol","textChars":8,"textLines":1,"bbox":[64,161,86,48]}
+{"kind":"textbox","id":"sh/4zm9o76x","slide":1,"text":"Feature","textPreview":"Feature","textChars":7,"textLines":1,"bbox":[158,161,108,48]}
+{"kind":"textbox","id":"sh/p0vaxcni","slide":1,"text":"XGB\nNRMSE","textPreview":"XGB | NRMSE","textChars":9,"textLines":2,"bbox":[274,161,117,48]}
+{"kind":"textbox","id":"sh/u9krixov","slide":1,"text":"Fine-tuned\nNRMSE","textPreview":"Fine-tuned | NRMSE","textChars":16,"textLines":2,"bbox":[399,161,117,48]}
+{"kind":"textbox","id":"sh/fatsri5g","slide":1,"text":"XGB\nR²","textPreview":"XGB | R²","textChars":6,"textLines":2,"bbox":[524,161,117,48]}
+{"kind":"textbox","id":"sh/rix8ryd4","slide":1,"text":"Fine-tuned\nR²","textPreview":"Fine-tuned | R²","textChars":13,"textLines":2,"bbox":[649,161,117,48]}
+{"kind":"shape","id":"sh/qho7ytcj","slide":1,"bbox":[60,217,710,53]}
+{"kind":"textbox","id":"sh/dkzqt8va","slide":1,"text":"LORO","textPreview":"LORO","textChars":4,"textLines":1,"bbox":[60,228,94,28]}
+{"kind":"textbox","id":"sh/sj6p03up","slide":1,"text":"ESN","textPreview":"ESN","textChars":3,"textLines":1,"bbox":[154,228,116,28]}
+{"kind":"textbox","id":"sh/f6h8vydg","slide":1,"text":"0.160","textPreview":"0.160","textChars":5,"textLines":1,"bbox":[270,227,125,28]}
+{"kind":"shape","id":"sh/e5872dcv","slide":1,"bbox":[400,224,115,39]}
+{"kind":"textbox","id":"sh/18zqx8v6","slide":1,"text":"0.144","textPreview":"0.144","textChars":5,"textLines":1,"bbox":[395,227,125,28]}
+{"kind":"textbox","id":"sh/07qp43ul","slide":1,"text":"0.718","textPreview":"0.718","textChars":5,"textLines":1,"bbox":[520,227,125,28]}
+{"kind":"shape","id":"sh/vad8jedw","slide":1,"bbox":[650,224,115,39]}
+{"kind":"textbox","id":"sh/up47q9cb","slide":1,"text":"0.771","textPreview":"0.771","textChars":5,"textLines":1,"bbox":[645,227,125,28]}
+{"kind":"shape","id":"sh/yhwjel0b","slide":1,"bbox":[60,270,710,53]}
+{"kind":"textbox","id":"sh/ji5kn61w","slide":1,"text":"LORO","textPreview":"LORO","textChars":4,"textLines":1,"bbox":[60,281,94,28]}
+{"kind":"textbox","id":"sh/kje1gbih","slide":1,"text":"Thermal","textPreview":"Thermal","textChars":7,"textLines":1,"bbox":[154,281,116,28]}
+{"kind":"textbox","id":"sh/lkn2pgj2","slide":1,"text":"0.164","textPreview":"0.164","textChars":5,"textLines":1,"bbox":[270,280,125,28]}
+{"kind":"shape","id":"sh/adcja10f","slide":1,"bbox":[400,277,115,39]}
+{"kind":"textbox","id":"sh/belkj61k","slide":1,"text":"0.159","textPreview":"0.159","textChars":5,"textLines":1,"bbox":[395,280,125,28]}
+{"kind":"textbox","id":"sh/wfu1cbi5","slide":1,"text":"0.703","textPreview":"0.703","textChars":5,"textLines":1,"bbox":[520,280,125,28]}
+{"kind":"shape","id":"sh/xg32lgjq","slide":1,"bbox":[650,277,115,39]}
+{"kind":"textbox","id":"sh/mpcj6103","slide":1,"text":"0.723","textPreview":"0.723","textChars":5,"textLines":1,"bbox":[645,280,125,28]}
+{"kind":"shape","id":"sh/nqlkfm1o","slide":1,"bbox":[60,323,710,53]}
+{"kind":"textbox","id":"sh/p4rml436","slide":1,"text":"LOMO","textPreview":"LOMO","textChars":4,"textLines":1,"bbox":[60,334,94,28]}
+{"kind":"textbox","id":"sh/43i5cz2l","slide":1,"text":"ESN","textPreview":"ESN","textChars":3,"textLines":1,"bbox":[154,334,116,28]}
+{"kind":"textbox","id":"sh/3294jul0","slide":1,"text":"0.217","textPreview":"0.217","textChars":5,"textLines":1,"bbox":[270,333,125,28]}
+{"kind":"shape","id":"sh/210napkf","slide":1,"bbox":[400,330,115,39]}
+{"kind":"textbox","id":"sh/h0rmhk3a","slide":1,"text":"0.197","textPreview":"0.197","textChars":5,"textLines":1,"bbox":[395,333,125,28]}
+{"kind":"textbox","id":"sh/gfy58f2p","slide":1,"text":"0.482","textPreview":"0.482","textChars":5,"textLines":1,"bbox":[520,333,125,28]}
+{"kind":"shape","id":"sh/fep4fal4","slide":1,"bbox":[650,330,115,39]}
+{"kind":"textbox","id":"sh/udgn65kj","slide":1,"text":"0.572","textPreview":"0.572","textChars":5,"textLines":1,"bbox":[645,333,125,28]}
+{"kind":"shape","id":"sh/tc7mdk3y","slide":1,"bbox":[60,376,710,53]}
+{"kind":"textbox","id":"sh/sbyl4f2d","slide":1,"text":"LOMO","textPreview":"LOMO","textChars":4,"textLines":1,"bbox":[60,387,94,28]}
+{"kind":"textbox","id":"sh/836lofyd","slide":1,"text":"Thermal","textPreview":"Thermal","textChars":7,"textLines":1,"bbox":[154,387,116,28]}
+{"kind":"textbox","id":"sh/94fmxkzy","slide":1,"text":"0.220","textPreview":"0.220","textChars":5,"textLines":1,"bbox":[270,386,125,28]}
+{"kind":"shape","id":"sh/m1o3m5g7","slide":1,"bbox":[400,383,115,39]}
+{"kind":"textbox","id":"sh/n2x4vahs","slide":1,"text":"0.221","textPreview":"0.221","textChars":5,"textLines":1,"bbox":[395,386,125,28]}
+{"kind":"textbox","id":"sh/w7q5szy9","slide":1,"text":"0.470","textPreview":"0.470","textChars":5,"textLines":1,"bbox":[520,386,125,28]}
+{"kind":"shape","id":"sh/h8zm14zu","slide":1,"bbox":[650,383,115,39]}
+{"kind":"textbox","id":"sh/u5onqpgj","slide":1,"text":"0.465","textPreview":"0.465","textChars":5,"textLines":1,"bbox":[645,386,125,28]}
+{"kind":"shape","id":"sh/v6h4zuho","slide":1,"bbox":[60,429,710,53]}
+{"kind":"textbox","id":"sh/cbmlgvy5","slide":1,"text":"LOTO","textPreview":"LOTO","textChars":4,"textLines":1,"bbox":[60,440,94,28]}
+{"kind":"textbox","id":"sh/dcvmp0zq","slide":1,"text":"ESN","textPreview":"ESN","textChars":3,"textLines":1,"bbox":[154,440,116,28]}
+{"kind":"textbox","id":"sh/f25gb25k","slide":1,"text":"0.335","textPreview":"0.335","textChars":5,"textLines":1,"bbox":[270,439,125,28]}
+{"kind":"shape","id":"sh/e1cfix4z","slide":1,"bbox":[400,436,115,39]}
+{"kind":"textbox","id":"sh/14nydcna","slide":1,"text":"0.318","textPreview":"0.318","textChars":5,"textLines":1,"bbox":[395,439,125,28]}
+{"kind":"textbox","id":"sh/03ehk7mp","slide":1,"text":"−0.235","textPreview":"−0.235","textChars":6,"textLines":1,"bbox":[520,439,125,28]}
+{"kind":"shape","id":"sh/rylg7i58","slide":1,"bbox":[650,436,115,39]}
+{"kind":"textbox","id":"sh/qdcfed4n","slide":1,"text":"−0.115","textPreview":"−0.115","textChars":6,"textLines":1,"bbox":[645,439,125,28]}
+{"kind":"shape","id":"sh/d03y9sne","slide":1,"bbox":[60,482,710,53]}
+{"kind":"textbox","id":"sh/szuxgnmt","slide":1,"text":"LOTO","textPreview":"LOTO","textChars":4,"textLines":1,"bbox":[60,493,94,28]}
+{"kind":"textbox","id":"sh/3a1g3i5c","slide":1,"text":"Thermal","textPreview":"Thermal","textChars":7,"textLines":1,"bbox":[154,493,116,28]}
+{"kind":"textbox","id":"sh/i9sfad4r","slide":1,"text":"0.335","textPreview":"0.335","textChars":5,"textLines":1,"bbox":[270,492,125,28]}
+{"kind":"shape","id":"sh/65szmd8j","slide":1,"bbox":[400,489,115,39]}
+{"kind":"textbox","id":"sh/761gvip4","slide":1,"text":"0.292","textPreview":"0.292","textChars":5,"textLines":1,"bbox":[395,492,125,28]}
+{"kind":"textbox","id":"sh/87ahonqp","slide":1,"text":"0.110","textPreview":"0.110","textChars":5,"textLines":1,"bbox":[520,492,125,28]}
+{"kind":"shape","id":"sh/t8jyx87a","slide":1,"bbox":[650,489,115,39]}
+{"kind":"textbox","id":"sh/u9szqdov","slide":1,"text":"0.064","textPreview":"0.064","textChars":5,"textLines":1,"bbox":[645,492,125,28]}
+{"kind":"shape","id":"sh/va10zip0","slide":1,"bbox":[153,151,2,384]}
+{"kind":"shape","id":"sh/gbuhsn6l","slide":1,"bbox":[269,151,2,384]}
+{"kind":"shape","id":"sh/hw3i1s76","slide":1,"bbox":[394,151,2,384]}
+{"kind":"shape","id":"sh/ixczuxor","slide":1,"bbox":[519,151,2,384]}
+{"kind":"shape","id":"sh/3yl032pc","slide":1,"bbox":[644,151,2,384]}
+{"kind":"textbox","id":"sh/dsn2twre","slide":1,"text":"Lower NRMSE is better  •  Higher R² is better","textPreview":"Lower NRMSE is better  •  Higher R² is better","textChars":45,"textLines":1,"bbox":[60,545,710,24]}
+{"kind":"shape","id":"sh/sre1krqt","slide":1,"bbox":[818,151,3,422]}
+{"kind":"textbox","id":"sh/rq5krm98","slide":1,"text":"What the improved results show","textPreview":"What the improved results show","textChars":30,"textLines":1,"bbox":[842,150,360,32]}
+{"kind":"textbox","id":"sh/q5wjihs3","slide":1,"text":"0.771","textPreview":"0.771","textChars":5,"textLines":1,"bbox":[842,203,126,48]}
+{"kind":"textbox","id":"sh/1w72xwrq","slide":1,"text":"Best R²: LORO with ESN","textPreview":"Best R²: LORO with ESN","textChars":22,"textLines":1,"bbox":[970,204,245,31]}
+{"kind":"textbox","id":"sh/0vy1orq5","slide":1,"text":"Repetitions generalize well when material and temperature are represented in training.","textPreview":"Repetitions generalize well when material and temperature are represented in training.","textChars":86,"textLines":1,"bbox":[970,246,245,64]}
+{"kind":"textbox","id":"sh/fupkv69k","slide":1,"text":"+9.1 pp","textPreview":"+9.1 pp","textChars":7,"textLines":1,"bbox":[842,317,126,48]}
+{"kind":"textbox","id":"sh/etwjm18z","slide":1,"text":"Largest gain: ESN–LOMO R²","textPreview":"Largest gain: ESN–LOMO R²","textChars":25,"textLines":1,"bbox":[970,318,245,31]}
+{"kind":"textbox","id":"sh/p0721grm","slide":1,"text":"R² rises from 0.482 to 0.572 while NRMSE falls by 9.2% — stronger prediction of unseen materials.","textPreview":"R² rises from 0.482 to 0.572 while NRMSE falls by 9.2% — stronger prediction of unseen materials.","textChars":97,"textLines":1,"bbox":[970,361,245,74]}
+{"kind":"textbox","id":"sh/ozylsbq1","slide":1,"text":"LOTO","textPreview":"LOTO","textChars":4,"textLines":1,"bbox":[842,445,126,43]}
+{"kind":"textbox","id":"sh/wnudojqd","slide":1,"text":"Temperature transfer remains weak","textPreview":"Temperature transfer remains weak","textChars":33,"textLines":1,"bbox":[970,446,245,42]}
+{"kind":"textbox","id":"sh/honuho7y","slide":1,"text":"ESN R² remains negative (−0.115); Thermal R² is only 0.064. Fine-tuning reduces error, but does not yet enable robust prediction at an unseen temperature.","textPreview":"ESN R² remains negative (−0.115); Thermal R² is only 0.064. Fine-tuning reduces error, but does not yet enable robust prediction at an un...","textChars":154,"textLines":1,"bbox":[970,497,245,90]}
+{"kind":"shape","id":"sh/ulcvm98n","slide":1,"bbox":[60,630,1160,52]}
+{"kind":"textbox","id":"sh/vmlcfeps","slide":1,"text":"Takeaway","textPreview":"Takeaway","textChars":8,"textLines":1,"bbox":[82,644,118,25]}
+{"kind":"textbox","id":"sh/8zudkjqh","slide":1,"text":"Fine-tuning most improves ESN material generalization; cross-temperature robustness is the next priority.","textPreview":"Fine-tuning most improves ESN material generalization; cross-temperature robustness is the next priority.","textChars":105,"textLines":1,"bbox":[205,642,990,30]}
+{"kind":"notes","id":"nt/r65zt8","slide":1,"text":"Focus on the current fine-tuned model. The strongest result is LORO ESN (R² 0.771). The most important improvement is LOMO ESN: R² increases by 0.0908 and NRMSE decreases by 9.2%, indicating better generalization to unseen materials. LOTO remains the main limitation because the model still does not transfer reliably to a completely unseen temperature.\n\n[Sources]\n- User-provided model-performance table (XGBoost update 2 and fine-tuned current update)."}

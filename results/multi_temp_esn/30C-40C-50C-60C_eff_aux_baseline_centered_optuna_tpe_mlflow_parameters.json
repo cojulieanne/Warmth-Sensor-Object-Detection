@@ -1,0 +1,169 @@
+{
+  "source": "AUX baseline-centered inputs; one shared configuration selected by pooled grouped-LOMO Optuna TPE search",
+  "input_preprocessing": {
+    "physical_channels": [
+      "Primary",
+      "Secondary"
+    ],
+    "baseline_definition": "first retained post-contact sample within each trial",
+    "baseline_centering": "channel(t) - channel(t0)",
+    "micro_unit_multiplier_used_for_model": false,
+    "engineered_channels": [
+      "baseline-centered smoothed Primary",
+      "baseline-centered smoothed Secondary",
+      "centered Primary minus centered Secondary",
+      "Primary derivative",
+      "Secondary derivative"
+    ],
+    "model_scaling": "StandardScaler fitted on training materials inside each LOMO fold"
+  },
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "thermal_windows": {
+    "early": [
+      0.0,
+      1.0
+    ],
+    "mid": [
+      1.0,
+      3.0
+    ],
+    "late": [
+      3.0,
+      5.0
+    ]
+  },
+  "summary_features": [
+    "mean",
+    "std",
+    "range",
+    "net_change",
+    "slope",
+    "absolute_area",
+    "time_of_max_absolute",
+    "skewness",
+    "excess_kurtosis"
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "esn_parameters": {
+    "res_size": 69,
+    "leak_rate": 0.9107553727282751,
+    "input_magnitude": 1.7341935739217356,
+    "spectral_radius": 1.299133973125021,
+    "washout": 5
+  },
+  "xgb_parameters": {
+    "n_estimators": 931,
+    "max_depth": 6,
+    "learning_rate": 0.13546881345335032,
+    "min_child_weight": 1.159865127209094,
+    "subsample": 0.7094667248290754,
+    "colsample_bytree": 0.7855075731192769,
+    "reg_alpha": 0.10038551035447883,
+    "reg_lambda": 0.06671486314073463
+  },
+  "selection_metrics": {
+    "objective_J": 0.26751419376871305,
+    "pooled_nrmse_range": 0.20694034991453766,
+    "pooled_r2": 0.5293202319246988,
+    "prediction_range_coverage": 0.7275579798600844,
+    "sd_fold_nrmse_training_range": 0.2422953754167015
+  },
+  "optuna_search": {
+    "sampler": "TPESampler",
+    "multivariate": true,
+    "n_trials": 100,
+    "n_startup_trials": 20,
+    "optimizer_seed": 4042,
+    "persistent_optuna_storage": false,
+    "material_folds": 14,
+    "stability_weight": 0.25,
+    "search_space": {
+      "res_size": [
+        "integer",
+        10.0,
+        80.0
+      ],
+      "leak_rate": [
+        "float",
+        0.05,
+        0.95
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.3,
+        1.5
+      ],
+      "washout": [
+        "integer",
+        0.0,
+        5.0
+      ],
+      "n_estimators": [
+        "integer",
+        200.0,
+        1200.0
+      ],
+      "max_depth": [
+        "integer",
+        2.0,
+        6.0
+      ],
+      "learning_rate": [
+        "log_float",
+        0.015,
+        0.2
+      ],
+      "min_child_weight": [
+        "log_float",
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        "float",
+        0.65,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.4,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        1e-06,
+        3.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.01,
+        30.0
+      ]
+    }
+  },
+  "mlflow": {
+    "tracking_uri": "sqlite:////Users/markkeanujamesexconde/Library/CloudStorage/OneDrive-Personal/Documents/Academe Files/4. Doctoral/Research 1 - Warmth Sensor/Warmth-Sensor-Object-Detection/results/multi_temp_esn/AUX_baseline_centered_mlflow_tracking.db",
+    "backend": "local SQLite used only for MLflow tracking",
+    "artifact_directory": "/Users/markkeanujamesexconde/Library/CloudStorage/OneDrive-Personal/Documents/Academe Files/4. Doctoral/Research 1 - Warmth Sensor/Warmth-Sensor-Object-Detection/results/multi_temp_esn/aux_baseline_centered_mlflow_artifacts",
+    "experiment_name": "AUX_baseline_centered_multi_temp_optuna_tpe",
+    "parent_run_id": "5644c7f4892345e9b9ef37bb1d524299"
+  }
+}

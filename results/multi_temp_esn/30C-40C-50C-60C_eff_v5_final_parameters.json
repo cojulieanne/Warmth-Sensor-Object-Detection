@@ -1,0 +1,135 @@
+{
+  "source": "final all-material multi-temperature joint Bayesian search after nested LOMO",
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "thermal_windows": {
+    "early": [
+      0.0,
+      1.0
+    ],
+    "mid": [
+      1.0,
+      3.0
+    ],
+    "late": [
+      3.0,
+      5.0
+    ]
+  },
+  "summary_features": [
+    "mean",
+    "std",
+    "range",
+    "net_change",
+    "slope",
+    "absolute_area",
+    "time_of_max_absolute",
+    "skewness",
+    "excess_kurtosis"
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "esn_parameters": {
+    "res_size": 31,
+    "leak_rate": 0.34589079153647223,
+    "input_magnitude": 0.7334664809941135,
+    "spectral_radius": 1.2248672182050648,
+    "washout": 4
+  },
+  "xgb_parameters": {
+    "n_estimators": 103,
+    "max_depth": 3,
+    "learning_rate": 0.01046323854801849,
+    "min_child_weight": 8.493269561277883,
+    "subsample": 0.7280329788528515,
+    "colsample_bytree": 0.9792193752676961,
+    "reg_alpha": 0.003630235206884938,
+    "reg_lambda": 69.85658977768485
+  },
+  "bayesian_search": {
+    "type": "joint_esn_xgboost_gaussian_process_expected_improvement",
+    "n_trials": 50,
+    "n_initial": 15,
+    "inner_material_folds": 4,
+    "stability_weight": 0.25,
+    "search_space": {
+      "res_size": [
+        "integer",
+        10.0,
+        80.0
+      ],
+      "leak_rate": [
+        "float",
+        0.05,
+        0.95
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.3,
+        1.5
+      ],
+      "washout": [
+        "integer",
+        0.0,
+        5.0
+      ],
+      "n_estimators": [
+        "integer",
+        100.0,
+        600.0
+      ],
+      "max_depth": [
+        "integer",
+        1.0,
+        4.0
+      ],
+      "learning_rate": [
+        "log_float",
+        0.01,
+        0.15
+      ],
+      "min_child_weight": [
+        "log_float",
+        1.0,
+        20.0
+      ],
+      "subsample": [
+        "float",
+        0.6,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.3,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        0.0001,
+        10.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.1,
+        100.0
+      ]
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "Primary": {
+    "input_unit": "A",
+    "output_unit": "degC",
+    "slope_c_per_a": -109928.59030918925,
+    "intercept_c": 98.45313142780581,
+    "calibration_temperature_range_c": [
+      24.8,
+      27.0
+    ],
+    "pairing_rule": "Sensor_T0_C paired with first current sample of matched valid run"
+  },
+  "Secondary": {
+    "input_unit": "A",
+    "output_unit": "degC",
+    "slope_c_per_a": -151716.5287873703,
+    "intercept_c": 132.00409243543376,
+    "calibration_temperature_range_c": [
+      24.8,
+      27.0
+    ],
+    "pairing_rule": "Sensor_T0_C paired with first current sample of matched valid run"
+  }
+}

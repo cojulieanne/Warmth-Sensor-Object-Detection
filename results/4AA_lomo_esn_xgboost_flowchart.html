@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1600px; background: #f6f8fb; font-family: Arial, Helvetica, sans-serif; color: #17324d; }
+  body { padding: 50px 70px 64px; }
+  h1 { margin: 0 0 12px; text-align: center; font-size: 40px; color: #153b5b; }
+  .subtitle { text-align: center; font-size: 22px; color: #5c7084; margin-bottom: 32px; }
+  .flow { width: 1400px; margin: auto; }
+  .node { width: 1080px; margin: auto; padding: 20px 32px; text-align: center; background: white; border: 3px solid #2374a6; border-radius: 16px; font-size: 25px; line-height: 1.35; box-shadow: 0 3px 10px rgba(25,58,84,.10); }
+  .node strong { color: #0d5d91; }
+  .node.data { border-color: #247ba0; background: #eaf5fb; }
+  .node.split { border-color: #525f7f; background: #f0f2f7; }
+  .node.channels { border-color: #e59b25; background: #fff8e8; text-align: left; padding-left: 78px; }
+  .node.scale { border-color: #2a9d8f; background: #ecf8f5; }
+  .node.seed { border-color: #7557b7; background: #f2edfb; }
+  .node.model { border-color: #d35d6e; background: #fff0f2; }
+  .node.output { border-color: #1f8b4c; background: #edf8f1; }
+  .arrow { height: 48px; position: relative; }
+  .arrow:before { content: ""; position: absolute; left: 50%; top: 0; height: 33px; border-left: 4px solid #7990a3; }
+  .arrow:after { content: ""; position: absolute; left: calc(50% - 9px); top: 27px; border-left: 11px solid transparent; border-right: 11px solid transparent; border-top: 15px solid #7990a3; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; width: 1240px; margin: auto; }
+  .two .node { width: auto; min-height: 132px; display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  .two .node strong { display:block; margin-bottom:4px; }
+  .seedbox { width: 1280px; margin: auto; border: 4px dashed #7557b7; border-radius: 22px; padding: 26px 28px 30px; background: rgba(242,237,251,.45); }
+  .seedtitle { text-align:center; font-size: 29px; font-weight: 700; color:#60409d; margin-bottom: 24px; }
+  .seedgrid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .seedcol { background:white; border:3px solid #967bcf; border-radius:15px; padding:18px 16px; text-align:center; }
+  .seedcol h2 { margin:0 0 14px; font-size:27px; color:#60409d; }
+  .step { border-top: 2px solid #ded6ee; padding: 13px 4px; font-size:21px; line-height:1.28; }
+  .step:first-of-type { border-top:0; }
+  .merge { width: 1180px; margin: auto; text-align:center; font-size:21px; color:#5d7083; font-style:italic; padding:8px 0 2px; }
+  .loop { border-left: 8px solid #1f8b4c; }
+  .note { margin: 24px auto 0; width: 1250px; padding: 16px 24px; border-radius: 12px; background:#e7eef5; color:#40566b; text-align:center; font-size:20px; }
+  ol { margin: 7px 0 0 28px; padding:0; }
+  li { margin: 5px 0; }
+</style>
+</head>
+<body>
+  <h1>LOMO ESN–XGBoost Evaluation Flow</h1>
+  <div class="subtitle">One fixed joint hyperparameter combination • repeated for every held-out material</div>
+  <div class="flow">
+    <div class="node data"><strong>336 aligned thermal time series</strong><br>14 materials × 4 temperatures × 6 repetitions</div>
+    <div class="arrow"></div>
+    <div class="node split"><strong>Create one LOMO fold</strong><br>hold out one complete material</div>
+    <div class="arrow"></div>
+    <div class="two">
+      <div class="node"><strong>Training set</strong><br>312 trials from 13 materials</div>
+      <div class="node"><strong>Test set</strong><br>24 trials from 1 held-out material</div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node channels"><strong>Construct five time-varying ESN input channels for every trial</strong>
+      <ol>
+        <li>Smoothed primary sensor response</li>
+        <li>Smoothed secondary sensor response</li>
+        <li>Primary − secondary response</li>
+        <li>Primary rate of change, dPrimary/dt</li>
+        <li>Secondary rate of change, dSecondary/dt</li>
+      </ol>
+    </div>
+    <div class="arrow"></div>
+    <div class="node scale"><strong>Fit the five-channel input scaler</strong><br>using only the 312 training trials</div>
+    <div class="arrow"></div>
+    <div class="two">
+      <div class="node scale">Transform the<br><strong>312 training time series</strong></div>
+      <div class="node scale">Apply the same fitted scaler to the<br><strong>24 held-out time series</strong></div>
+    </div>
+    <div class="arrow"></div>
+    <div class="seedbox">
+      <div class="seedtitle">Repeat independently for reservoir seeds 42, 43 and 44</div>
+      <div class="seedgrid">
+        <div class="seedcol"><h2>Seed 42</h2><div class="step">Create reservoir with fixed ESN HPs</div><div class="step">Run 312 training sequences → summarize trajectories into 312 ESN-feature rows</div><div class="step">Run 24 test sequences through the same reservoir → summarize into 24 ESN-feature rows</div><div class="step">Train XGBoost 42 on the 312 training rows and targets</div><div class="step">Predict the 24 held-out trials</div></div>
+        <div class="seedcol"><h2>Seed 43</h2><div class="step">Create reservoir with fixed ESN HPs</div><div class="step">Run 312 training sequences → summarize trajectories into 312 ESN-feature rows</div><div class="step">Run 24 test sequences through the same reservoir → summarize into 24 ESN-feature rows</div><div class="step">Train XGBoost 43 on the 312 training rows and targets</div><div class="step">Predict the 24 held-out trials</div></div>
+        <div class="seedcol"><h2>Seed 44</h2><div class="step">Create reservoir with fixed ESN HPs</div><div class="step">Run 312 training sequences → summarize trajectories into 312 ESN-feature rows</div><div class="step">Run 24 test sequences through the same reservoir → summarize into 24 ESN-feature rows</div><div class="step">Train XGBoost 44 on the 312 training rows and targets</div><div class="step">Predict the 24 held-out trials</div></div>
+      </div>
+    </div>
+    <div class="arrow"></div>
+    <div class="node model"><strong>Average the three seed-specific predictions</strong><br>one averaged prediction for each of the 24 held-out trials</div>
+    <div class="arrow"></div>
+    <div class="node output"><strong>Store 24 out-of-fold predictions</strong></div>
+    <div class="arrow"></div>
+    <div class="node output loop"><strong>Move to the next material and repeat</strong><br>until all 14 materials have served as the test material</div>
+    <div class="arrow"></div>
+    <div class="node output"><strong>Pool all 336 out-of-fold predictions</strong><br>calculate pooled NRMSE, R² and across-fold stability</div>
+    <div class="note">Within every fold, held-out target values are never used for scaler fitting, ESN-feature training or XGBoost fitting.</div>
+  </div>
+</body>
+</html>
