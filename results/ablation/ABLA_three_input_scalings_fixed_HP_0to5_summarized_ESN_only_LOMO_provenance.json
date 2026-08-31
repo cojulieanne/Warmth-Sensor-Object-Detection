@@ -1,0 +1,40 @@
+{
+  "research_question": "Effect of three sensor scaling representations under fixed model settings",
+  "conditions": {
+    "A_not_baseline_centered": "u(t)",
+    "B_baseline_centered": "u(t)-u(0)",
+    "C_per_trial_minmax_-1_to_0": "(u(t)-max(u))/(max(u)-min(u)), separately per sensor and trial"
+  },
+  "analysis_window": [
+    0.0,
+    5.0
+  ],
+  "reservoir_representation": "nine nonredundant statistical summaries per unit",
+  "regressor_inputs": [
+    "summarized ESN trajectories only"
+  ],
+  "esn_parameters": {
+    "res_size": 20,
+    "leak_rate": 0.3,
+    "input_magnitude": 1.0,
+    "spectral_radius": 0.9,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 300,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 5,
+    "reg_alpha": 0.1,
+    "reg_lambda": 10.0
+  },
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "validation": "14-fold LOMO with pooled OOF metrics",
+  "clip_predictions_to_training_range": true
+}
