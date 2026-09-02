@@ -1,0 +1,8 @@
+condition,candidate_esn_predictors,candidate_thermal_predictors,candidate_total_predictors,mean_retained_predictors,min_retained_predictors,max_retained_predictors,mean_retention_fraction
+A_raw_ESN_states,620,0,620,620.0,620,620,1.0
+B_summarized_ESN_states,180,0,180,180.0,180,180,1.0
+C_raw_ESN_plus_thermal,620,27,647,647.0,647,647,1.0
+D_summarized_ESN_plus_thermal,180,27,207,207.0,207,207,1.0
+E_thermal_features_only,0,27,27,27.0,27,27,1.0
+F_optimized_summarized_ESN,180,0,180,34.023809523809526,26,39,0.18902116402116403
+G_optimized_summarized_ESN_plus_thermal,180,27,207,41.595238095238095,33,48,0.20094317920404875
