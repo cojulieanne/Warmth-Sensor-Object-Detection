@@ -1,0 +1,65 @@
+{
+  "purpose": "Controlled ESN reservoir-size ablation",
+  "reservoir_sizes": [
+    5,
+    10,
+    20,
+    30,
+    50,
+    75,
+    100
+  ],
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    3.0
+  ],
+  "input_preprocessing": {
+    "sensor_values": "absolute processed-file Primary and Secondary values",
+    "smoothing": "Savitzky-Golay",
+    "baseline_centering": false,
+    "minmax_normalization": false,
+    "standard_scaler": false,
+    "esn_channels": [
+      "Primary",
+      "Secondary",
+      "Primary-Secondary",
+      "dPrimary/dt",
+      "dSecondary/dt"
+    ]
+  },
+  "regressor_inputs": [
+    "nine summarized statistics per ESN unit",
+    "27 scalar thermal features"
+  ],
+  "temperature_used_as_regressor_feature": false,
+  "fixed_esn_parameters": {
+    "leak_rate": 0.3,
+    "input_magnitude": 1.0,
+    "spectral_radius": 0.9,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 300,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 5,
+    "reg_alpha": 0.1,
+    "reg_lambda": 10.0
+  },
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "validation": "14-fold LOMO; one pooled metric set from 336 OOF trial predictions per reservoir size",
+  "selection_warning": "The best size is exploratory unless independently confirmed or selected inside nested CV."
+}

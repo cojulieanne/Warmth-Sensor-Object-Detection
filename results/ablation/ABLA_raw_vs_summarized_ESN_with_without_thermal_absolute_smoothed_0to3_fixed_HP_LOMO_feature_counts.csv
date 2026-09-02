@@ -1,0 +1,5 @@
+condition,esn_predictors,thermal_predictors,total_predictors
+A_raw_ESN_states,620,0,620
+B_summarized_ESN_states,180,0,180
+C_raw_ESN_plus_thermal,620,27,647
+D_summarized_ESN_plus_thermal,180,27,207

@@ -1,0 +1,5 @@
+comparison,first_condition,reference_condition,delta_nrmse_first_minus_reference,delta_r2_first_minus_reference
+"Raw versus summarized, ESN only",A_raw_ESN_states,B_summarized_ESN_states,0.01775916858890686,-0.09083795003820783
+"Raw versus summarized, with thermal",C_raw_ESN_plus_thermal,D_summarized_ESN_plus_thermal,0.012332665490397049,-0.06088761516684016
+Thermal addition to raw ESN,C_raw_ESN_plus_thermal,A_raw_ESN_states,-0.010805723611334667,0.056096983173772874
+Thermal addition to summarized ESN,D_summarized_ESN_plus_thermal,B_summarized_ESN_states,-0.005379220512824856,0.026146648302405207
