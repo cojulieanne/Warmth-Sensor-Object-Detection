@@ -1,0 +1,97 @@
+{
+  "purpose": "Controlled ESN leak-rate ablation",
+  "leak_rates": [
+    0.01,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.7,
+    0.9,
+    1.0,
+    1.5
+  ],
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    3.0
+  ],
+  "input_preprocessing": {
+    "sensor_values": "absolute processed-file Primary and Secondary values",
+    "smoothing": "Savitzky-Golay",
+    "baseline_centering": false,
+    "minmax_normalization": false,
+    "standard_scaler": false,
+    "esn_channels": [
+      "Primary",
+      "Secondary",
+      "Primary-Secondary",
+      "dPrimary/dt",
+      "dSecondary/dt"
+    ]
+  },
+  "regressor_inputs": [
+    "nine summarized statistics per ESN unit",
+    "27 scalar thermal features"
+  ],
+  "temperature_used_as_regressor_feature": false,
+  "fixed_esn_parameters": {
+    "res_size": 20,
+    "input_magnitude": 1.0,
+    "spectral_radius": 0.9,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 300,
+    "max_depth": 3,
+    "learning_rate": 0.05,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 5,
+    "reg_alpha": 0.1,
+    "reg_lambda": 10.0
+  },
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "validation": "14-fold LOMO; 336 pooled OOF trial predictions per leak rate",
+  "unit_level_dynamics": {
+    "material": "graphite",
+    "temperature": "60C",
+    "leak_rates": [
+      0.01,
+      0.1,
+      0.3,
+      0.7,
+      1.0
+    ],
+    "seed": 42,
+    "common_time_points": 61,
+    "saturation_threshold": 0.95,
+    "pca_variance_threshold": 0.95,
+    "unit_indices_matched_across_conditions": true,
+    "relationship_units": [
+      0,
+      3,
+      7,
+      11,
+      15,
+      19
+    ],
+    "relationship_metrics": [
+      "mean_state_step_magnitude",
+      "mean_lag1_state_correlation",
+      "mean_max_abs_input_state_correlation"
+    ]
+  },
+  "selection_warning": "The exploratory best leak rate requires independent confirmation or nested selection."
+}
