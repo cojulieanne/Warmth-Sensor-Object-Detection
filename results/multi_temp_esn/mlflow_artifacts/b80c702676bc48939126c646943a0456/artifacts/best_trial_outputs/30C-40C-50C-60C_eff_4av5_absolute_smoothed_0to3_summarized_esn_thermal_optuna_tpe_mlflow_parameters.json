@@ -1,22 +1,7 @@
 {
-  "source": "4AAAA AUX-style baseline-centered raw-state configuration selected by pooled grouped-LOMO Optuna TPE search",
-  "input_preprocessing": {
-    "physical_channels": [
-      "Primary",
-      "Secondary"
-    ],
-    "baseline_definition": "first retained post-contact sample within each trial",
-    "baseline_centering": "channel(t) - channel(t0)",
-    "micro_unit_multiplier_used_for_model": false,
-    "engineered_channels": [
-      "baseline-centered smoothed Primary",
-      "baseline-centered smoothed Secondary",
-      "centered Primary minus centered Secondary",
-      "Primary derivative",
-      "Secondary derivative"
-    ],
-    "model_scaling": "StandardScaler fitted on training groups inside each evaluation fold"
-  },
+  "source": "4Av5 shared configuration selected by pooled grouped-LOMO Optuna TPE search",
+  "input_preprocessing": "direct absolute Savitzky-Golay-smoothed values; no baseline centering, minmax scaling, or StandardScaler",
+  "regressor_inputs": "nine summaries per ESN unit + 27 scalar thermal features + Temperature_C",
   "temperature_folders": [
     "30C",
     "40C",
@@ -26,28 +11,34 @@
   "target": "eff",
   "analysis_window": [
     0.0,
-    1.0
+    3.0
   ],
   "thermal_windows": {
     "early": [
       0.0,
-      0.3
+      1.0
     ],
     "mid": [
-      0.3,
-      0.6
+      1.0,
+      2.0
     ],
     "late": [
-      0.6,
-      1.0
+      2.0,
+      3.0
     ]
   },
-  "regressor_input_blocks": [
-    "Temperature_C",
-    "manual_scalar_thermal_features",
-    "raw_ESN_states"
+  "summary_features": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "initial",
+    "net_change",
+    "slope",
+    "mean_abs",
+    "abs_auc"
   ],
-  "manual_thermal_features": [
+  "thermal_feature_names": [
     "primary_final_change",
     "primary_max_abs_change",
     "primary_response_auc",
@@ -76,53 +67,34 @@
     "initial_sensor_difference",
     "final_sensor_difference"
   ],
-  "reservoir_representation": {
-    "type": "raw_time_ordered_states",
-    "time_points": 11,
-    "time_grid_seconds": [
-      0.0,
-      0.1,
-      0.2,
-      0.30000000000000004,
-      0.4,
-      0.5,
-      0.6000000000000001,
-      0.7000000000000001,
-      0.8,
-      0.9,
-      1.0
-    ],
-    "flatten_order": "time_major_then_reservoir_unit",
-    "statistical_summaries_used": false
-  },
   "reservoir_seeds": [
     42,
     43,
     44
   ],
   "esn_parameters": {
-    "res_size": 15,
-    "leak_rate": 0.39036488119467183,
-    "input_magnitude": 1.7614690963220498,
-    "spectral_radius": 1.471494143122884,
-    "washout": 0
+    "res_size": 11,
+    "leak_rate": 0.8166053734680376,
+    "input_magnitude": 0.3596943200709774,
+    "spectral_radius": 0.8265276809865134,
+    "washout": 1
   },
   "xgb_parameters": {
-    "n_estimators": 748,
-    "max_depth": 5,
-    "learning_rate": 0.16761305466962773,
-    "min_child_weight": 2.477320700516147,
-    "subsample": 0.8074133527710705,
-    "colsample_bytree": 0.6883629643125497,
-    "reg_alpha": 0.0009622971570858446,
-    "reg_lambda": 18.175527204948843
+    "n_estimators": 860,
+    "max_depth": 2,
+    "learning_rate": 0.04045687849775358,
+    "min_child_weight": 5.732179600110452,
+    "subsample": 0.810476408862635,
+    "colsample_bytree": 0.4629701351326639,
+    "reg_alpha": 0.015182122118455705,
+    "reg_lambda": 0.02105146717581522
   },
   "selection_metrics": {
-    "objective_J": 0.28667444865044917,
-    "pooled_nrmse_range": 0.22604853766646443,
-    "pooled_r2": 0.4383851582381625,
-    "prediction_range_coverage": 0.851580076442627,
-    "sd_fold_nrmse_training_range": 0.24250364393593893
+    "objective_J": 0.270007688999222,
+    "pooled_nrmse_range": 0.20746996908091164,
+    "pooled_r2": 0.5269079424219951,
+    "prediction_range_coverage": 0.8385169967178752,
+    "sd_fold_nrmse_training_range": 0.2501508796732414
   },
   "optuna_search": {
     "sampler": "TPESampler",
@@ -137,7 +109,7 @@
       "res_size": [
         "integer",
         10.0,
-        30.0
+        80.0
       ],
       "leak_rate": [
         "float",
@@ -153,6 +125,11 @@
         "float",
         0.3,
         1.5
+      ],
+      "washout": [
+        "integer",
+        0.0,
+        5.0
       ],
       "n_estimators": [
         "integer",
@@ -197,10 +174,10 @@
     }
   },
   "mlflow": {
-    "tracking_uri": "sqlite:///C:\\Users\\TakeiGr\\Desktop\\EXC\\Deployment\\results\\multi_temp_esn\\4AAAA_baseline_centered_raw_states_mlflow_tracking.db",
+    "tracking_uri": "sqlite:///C:\\Users\\TakeiGr\\Desktop\\EXC\\Deployment\\results\\multi_temp_esn\\4Av5_mlflow_tracking.db",
     "backend": "local SQLite used only for MLflow tracking",
-    "artifact_directory": "C:\\Users\\TakeiGr\\Desktop\\EXC\\Deployment\\results\\multi_temp_esn\\4aaaa_baseline_centered_mlflow_artifacts",
-    "experiment_name": "4AAAA_baseline_centered_raw_state_optuna_tpe",
-    "parent_run_id": "03f5da6ce3ec46f79fb4087e19c13444"
+    "artifact_directory": "C:\\Users\\TakeiGr\\Desktop\\EXC\\Deployment\\results\\multi_temp_esn\\mlflow_artifacts",
+    "experiment_name": "4Av5_absolute_summarized_esn_thermal_optuna_tpe",
+    "parent_run_id": "b80c702676bc48939126c646943a0456"
   }
 }
