@@ -1,0 +1,2 @@
+target,protocol,n_optuna_trials,random_states,n,mae,rmse,nrmse_range,r2,median_ape_pct,prediction_range_coverage
+eff,4av5_refined_absolute_smoothed_0to3_summarized_esn_thermal_grouped_lomo_optuna_tpe,100,"(42, 43, 44)",336,4187.130344102754,7669.9924785112025,0.20641505993459716,0.5317067125620011,50.90163947981582,0.9011987292402841

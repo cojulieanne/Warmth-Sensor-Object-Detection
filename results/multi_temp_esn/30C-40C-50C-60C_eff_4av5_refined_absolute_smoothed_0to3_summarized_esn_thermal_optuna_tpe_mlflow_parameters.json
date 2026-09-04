@@ -1,0 +1,198 @@
+{
+  "source": "4Av5 refined ablation-informed configuration selected by pooled grouped-LOMO Optuna TPE search",
+  "input_preprocessing": "direct absolute Savitzky-Golay-smoothed values; no baseline centering, minmax scaling, or StandardScaler",
+  "regressor_inputs": "nine summaries per ESN unit + 27 scalar thermal features + Temperature_C",
+  "search_refinement": {
+    "basis": "controlled reservoir-size, leak-rate, and spectral-radius ablations",
+    "res_size": [
+      10,
+      30
+    ],
+    "leak_rate": [
+      0.1,
+      0.7
+    ],
+    "spectral_radius": [
+      0.7,
+      1.2
+    ],
+    "input_magnitude": [
+      0.25,
+      2.0
+    ],
+    "washout": 0
+  },
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    3.0
+  ],
+  "thermal_windows": {
+    "early": [
+      0.0,
+      1.0
+    ],
+    "mid": [
+      1.0,
+      2.0
+    ],
+    "late": [
+      2.0,
+      3.0
+    ]
+  },
+  "summary_features": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "initial",
+    "net_change",
+    "slope",
+    "mean_abs",
+    "abs_auc"
+  ],
+  "thermal_feature_names": [
+    "primary_final_change",
+    "primary_max_abs_change",
+    "primary_response_auc",
+    "primary_early_slope",
+    "primary_mid_slope",
+    "primary_late_slope",
+    "primary_max_abs_rate",
+    "primary_rate_auc",
+    "secondary_final_change",
+    "secondary_max_abs_change",
+    "secondary_response_auc",
+    "secondary_early_slope",
+    "secondary_mid_slope",
+    "secondary_late_slope",
+    "secondary_max_abs_rate",
+    "secondary_rate_auc",
+    "difference_final_change",
+    "difference_max_abs_change",
+    "difference_response_auc",
+    "difference_early_slope",
+    "difference_mid_slope",
+    "difference_late_slope",
+    "difference_max_abs_rate",
+    "difference_rate_auc",
+    "secondary_primary_auc_ratio",
+    "initial_sensor_difference",
+    "final_sensor_difference"
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "esn_parameters": {
+    "res_size": 13,
+    "leak_rate": 0.36271115067874177,
+    "input_magnitude": 1.6491353351030806,
+    "spectral_radius": 0.9774091980814712,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 1001,
+    "max_depth": 4,
+    "learning_rate": 0.14067882177870286,
+    "min_child_weight": 2.349376848330059,
+    "subsample": 0.9876512262265423,
+    "colsample_bytree": 0.4091982767722205,
+    "reg_alpha": 0.9600220512568372,
+    "reg_lambda": 1.6000433828830372
+  },
+  "selection_metrics": {
+    "objective_J": 0.26751531547474405,
+    "pooled_nrmse_range": 0.20641505993459716,
+    "pooled_r2": 0.5317067125620011,
+    "prediction_range_coverage": 0.9011987292402841,
+    "sd_fold_nrmse_training_range": 0.24440102216058765
+  },
+  "optuna_search": {
+    "sampler": "TPESampler",
+    "multivariate": true,
+    "n_trials": 100,
+    "n_startup_trials": 20,
+    "optimizer_seed": 4042,
+    "persistent_optuna_storage": false,
+    "material_folds": 14,
+    "stability_weight": 0.25,
+    "search_space": {
+      "res_size": [
+        "integer",
+        10.0,
+        30.0
+      ],
+      "leak_rate": [
+        "float",
+        0.1,
+        0.7
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.7,
+        1.2
+      ],
+      "n_estimators": [
+        "integer",
+        200.0,
+        1200.0
+      ],
+      "max_depth": [
+        "integer",
+        2.0,
+        6.0
+      ],
+      "learning_rate": [
+        "log_float",
+        0.015,
+        0.2
+      ],
+      "min_child_weight": [
+        "log_float",
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        "float",
+        0.65,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.4,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        1e-06,
+        3.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.01,
+        30.0
+      ]
+    }
+  },
+  "mlflow": {
+    "tracking_uri": "sqlite:////Users/markkeanujamesexconde/Library/CloudStorage/OneDrive-Personal/Documents/Academe Files/4. Doctoral/Research 1 - Warmth Sensor/Warmth-Sensor-Object-Detection/results/multi_temp_esn/4Av5_refined_mlflow_tracking.db",
+    "backend": "local SQLite used only for MLflow tracking",
+    "artifact_directory": "/Users/markkeanujamesexconde/Library/CloudStorage/OneDrive-Personal/Documents/Academe Files/4. Doctoral/Research 1 - Warmth Sensor/Warmth-Sensor-Object-Detection/results/multi_temp_esn/mlflow_artifacts",
+    "experiment_name": "4Av5_refined_absolute_summarized_esn_thermal_optuna_tpe",
+    "parent_run_id": "cbfce9332e0f41bc9d354985c36869ca"
+  }
+}

@@ -1,0 +1,2 @@
+folds,mean_fold_mae,sd_fold_mae,worst_fold_mae,mean_fold_rmse,sd_fold_rmse,worst_fold_rmse,mean_fold_nrmse_training_range,sd_fold_nrmse_training_range,worst_fold_nrmse_training_range
+14,4187.130344102755,6135.736558612263,23127.35082140019,4746.37665871987,6252.443862361012,23531.306135131606,0.15275808613492242,0.24440102216058765,0.9836022930585786
