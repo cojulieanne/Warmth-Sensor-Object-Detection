@@ -1,0 +1,172 @@
+{
+  "source": "4Av6 beginner-friendly implementation matching the current 4Av5 pipeline",
+  "temperature_folders": [
+    "30C",
+    "40C",
+    "50C",
+    "60C"
+  ],
+  "target": "eff",
+  "analysis_window": [
+    0.0,
+    3.0
+  ],
+  "reservoir_seeds": [
+    42,
+    43,
+    44
+  ],
+  "input_preprocessing": "direct absolute Savitzky-Golay-smoothed Primary and dPrimary/dt; no baseline centering, minmax scaling, or fitted StandardScaler",
+  "esn_input_channels": [
+    "Primary",
+    "dPrimary/dt"
+  ],
+  "regressor_inputs": "nine summaries per ESN unit + 27 scalar thermal features + Temperature_C",
+  "summary_features": [
+    "mean",
+    "std",
+    "min",
+    "max",
+    "initial",
+    "net_change",
+    "slope",
+    "mean_abs",
+    "abs_auc"
+  ],
+  "thermal_feature_names": [
+    "primary_final_change",
+    "primary_max_abs_change",
+    "primary_response_auc",
+    "primary_early_slope",
+    "primary_mid_slope",
+    "primary_late_slope",
+    "primary_max_abs_rate",
+    "primary_rate_auc",
+    "secondary_final_change",
+    "secondary_max_abs_change",
+    "secondary_response_auc",
+    "secondary_early_slope",
+    "secondary_mid_slope",
+    "secondary_late_slope",
+    "secondary_max_abs_rate",
+    "secondary_rate_auc",
+    "difference_final_change",
+    "difference_max_abs_change",
+    "difference_response_auc",
+    "difference_early_slope",
+    "difference_mid_slope",
+    "difference_late_slope",
+    "difference_max_abs_rate",
+    "difference_rate_auc",
+    "secondary_primary_auc_ratio",
+    "initial_sensor_difference",
+    "final_sensor_difference"
+  ],
+  "prediction_consistency_metrics": {
+    "scope": "per held-out material across all temperatures and repetitions",
+    "variance": "sample variance of LOMO predictions (ddof=1)",
+    "std": "sample standard deviation of LOMO predictions",
+    "normalized_variance": "prediction variance divided by actual target squared",
+    "normalized_std": "prediction standard deviation divided by absolute actual target"
+  },
+  "esn_parameters": {
+    "res_size": 11,
+    "leak_rate": 0.6314836603741096,
+    "input_magnitude": 0.7596703287054567,
+    "spectral_radius": 1.1579615689227611,
+    "washout": 0
+  },
+  "xgb_parameters": {
+    "n_estimators": 1052,
+    "max_depth": 3,
+    "learning_rate": 0.12455972192680799,
+    "min_child_weight": 6.060358251715314,
+    "subsample": 0.8077585418758869,
+    "colsample_bytree": 0.5372079327731357,
+    "reg_alpha": 0.5671234533567403,
+    "reg_lambda": 27.89031235911929
+  },
+  "selection_metrics": {
+    "objective_J": 0.2631766273689463,
+    "pooled_nrmse_range": 0.2032057200759279,
+    "pooled_r2": 0.546155548596638,
+    "prediction_range_coverage": 0.8194738934149756,
+    "sd_fold_nrmse_training_range": 0.23988362917207373
+  },
+  "optuna": {
+    "sampler": "multivariate TPESampler",
+    "n_trials": 250,
+    "n_startup_trials": 20,
+    "optimizer_seed": 4042,
+    "stability_weight": 0.25,
+    "esn_search_space": {
+      "res_size": [
+        "integer",
+        10,
+        30
+      ],
+      "leak_rate": [
+        "float",
+        0.1,
+        0.7
+      ],
+      "input_magnitude": [
+        "float",
+        0.25,
+        2.0
+      ],
+      "spectral_radius": [
+        "float",
+        0.7,
+        1.2
+      ]
+    },
+    "xgb_search_space": {
+      "n_estimators": [
+        "integer",
+        200,
+        1200
+      ],
+      "max_depth": [
+        "integer",
+        2,
+        6
+      ],
+      "learning_rate": [
+        "log_float",
+        0.015,
+        0.2
+      ],
+      "min_child_weight": [
+        "log_float",
+        0.1,
+        10.0
+      ],
+      "subsample": [
+        "float",
+        0.65,
+        1.0
+      ],
+      "colsample_bytree": [
+        "float",
+        0.4,
+        1.0
+      ],
+      "reg_alpha": [
+        "log_float",
+        1e-06,
+        3.0
+      ],
+      "reg_lambda": [
+        "log_float",
+        0.01,
+        30.0
+      ]
+    }
+  },
+  "mlflow": {
+    "tracking_uri": "sqlite:////Users/markkeanujamesexconde/Library/CloudStorage/OneDrive-Personal/Documents/Academe Files/4. Doctoral/Research 1 - Warmth Sensor/Warmth-Sensor-Object-Detection/results/multi_temp_esn/4Av6_beginner_mlflow_tracking.db",
+    "experiment": "4Av6_beginner_primary_dprimary_summarized_esn_thermal",
+    "parent_run_id": "ec7039874a2540829785375f35e8bf94"
+  }
+}

@@ -1,0 +1,2 @@
+target,protocol,n,mae,rmse,nrmse_range,r2,median_ape_pct,prediction_range_coverage,performance_index
+eff,4av6_beginner_primary_dprimary_absolute_smoothed_0to3_summarized_esn_thermal_grouped_lomo_optuna_tpe,336,4170.513319000035,7550.739490939564,0.2032057200759279,0.546155548596638,49.97687841199726,0.8194738934149756,0.2631766273689463
